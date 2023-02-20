@@ -1,0 +1,54 @@
+
+<section *ngIf="pet" class="pet-edit">
+    <button (click)="goBack()">Back</button>
+    <h2>Add Pet</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="name">
+                Enter the pet's name:
+                <input #nameInput formControlName="name" id="name" placeholder=" name" type="text" />
+            </label>
+            <label for="age">
+             Enter the pet's age
+                <input type="number" min="1" id="age" max="25" formControlName="age">
+            </label>
+        </div>
+        <div class="flex part" >
+            <p>What is the type of the pet?</p>
+            <select formControlName="type"  class="ml-1">
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="horse">Horse</option>
+                <option value="other">Other</option>
+            </select>
+            
+        </div>
+        <div class="flex part">
+            <p>What is the color of the pet?</p>
+            <label for="white">
+                <input type="radio" id="white" formControlName="color" value="white">
+                White
+        </label>
+        <label for="black">
+            <input type="radio" id="black" formControlName="color" value="black">
+            Black
+        </label>
+    </div>
+        
+        <button md-button color="primary" [disabled]="form.invalid" type="submit">SUBMIT</button>
+        
+    </form>
+
+
+
+
+    <!-- <form (ngSubmit)="onSavePet()">
+        <label for="name">Name</label>
+        <input #nameInput [(ngModel)]="pet.name" type="text" name="name" id="name">
+
+        <label for="age">Age</label>
+        <input [(ngModel)]="pet.age" type="number" name="age" id="age">
+
+        <button>Save</button>   
+    </form> -->
+</section>
